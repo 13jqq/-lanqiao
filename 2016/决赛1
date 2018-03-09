@@ -1,0 +1,21 @@
+import java.math.BigInteger;
+
+public class test2 {
+
+	public static void main(String[] args) {
+		
+		// TODO Auto-generated method stub
+		BigInteger big = jie(9999);
+		System.out.println(big.bitLength());
+
+	}
+	public static BigInteger jie(int n){
+		if( n > 1){
+			return BigInteger.valueOf(n).multiply(jie( n - 1));
+		}
+		else{
+			return BigInteger.ONE;
+		}
+	}
+
+}
