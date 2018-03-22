@@ -1,0 +1,20 @@
+import java.util.Scanner;
+
+public class Main {
+	
+	public static void main(String[] args) {
+		Scanner scan = new Scanner(System.in);
+		while( scan.hasNext()){
+			int n = Integer.parseInt(scan.nextLine());
+			int a1 = 1 , a2 = 1 ,a3 =1;
+			for( int i = 3 ; i <= n ; i++){
+				a3 = ( a1 % 10007 + a2 % 10007) %10007;
+				a1 = a2;
+				a2 =a3;
+			}
+			System.out.println(a3);
+		}
+		scan.close();
+		
+	}
+}
