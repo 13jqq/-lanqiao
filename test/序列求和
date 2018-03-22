@@ -1,0 +1,25 @@
+import java.math.BigInteger;
+import java.util.Scanner;
+
+public class test {
+	
+	public static void main(String[] args) {
+		Scanner scan = new Scanner(System.in);
+		
+		while( scan.hasNext()){
+			String in = scan.nextLine();
+			BigInteger bg = new BigInteger(in);
+			BigInteger res = new BigInteger("0");
+			res = bg.add(new BigInteger("1"));
+			res = res.multiply(bg);
+			res = res.divide(new BigInteger( "2"));
+			System.out.println(res.toString());
+			
+		}
+		scan.close();
+		
+	}
+
+	
+
+}
