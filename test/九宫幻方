@@ -1,0 +1,59 @@
+import java.math.BigInteger;
+import java.util.Collections;
+import java.util.LinkedList;
+import java.util.Scanner;
+
+public class test {
+	
+	public static void main(String[] args) {
+		Scanner scan = new Scanner(System.in);
+		String[][] tre = new String[3][3];
+		String s = "";
+		for( int i = 0  ; i < 3 ; i ++){
+			for ( int j = 0 ; j < 3 ; j++){
+				tre[i][j] = scan.next();
+				s += tre[i][j];
+			}
+		}
+		//System.out.println(s);
+		String[] ss = {
+
+	            "492357816",
+
+	            "834159672",
+
+	            "618753294",
+
+	            "276951438",
+
+	            "294753618",
+
+	            "438951276",
+
+	            "816357492",
+
+	            "672159834"
+
+	        };
+		for( int j = 0 ; j < ss.length ; j++){
+			Boolean flag = true;
+			for( int  i = 0  ; i < 9 ; i++){
+			  if( s.charAt(i) == ss[j].charAt(i)){
+				  continue;
+			  }
+			  if( s.charAt(i) == '0'){
+				  
+				  continue;
+			  }
+			  flag = false;
+			  break;
+			  
+		    }
+			if( flag == true){
+				System.out.println(ss[j]);
+				return ;
+			}
+		}
+ }
+		
+		
