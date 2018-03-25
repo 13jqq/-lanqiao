@@ -1,0 +1,21 @@
+import java.math.BigInteger;
+import java.util.Collections;
+import java.util.LinkedList;
+import java.util.Scanner;
+
+public class test {
+	
+	public static void main(String[] args) {
+		//int age = 0;
+		for( int i = 0 ; i < 100 ; i++){
+			int tre = i * i * i;
+			int fot = i * i * i * i;
+			if( tre  >= 1000 && tre <=9999 && fot >= 100000 && fot <= 999999 ){
+				System.out.println(i +" " + tre+ " " + fot);
+			}
+		}
+		
+	}
+	
+	
+}
