@@ -1,0 +1,146 @@
+
+//枚举解法
+import java.math.BigInteger;
+import java.util.Collections;
+import java.util.LinkedList;
+import java.util.Scanner;
+
+public class test {
+	
+	public static void main(String[] args) {
+		Scanner scan = new Scanner(System.in);
+		int n = scan.nextInt();
+		String[] strs = new String[n]; 
+		for( int i = 0 ; i < n ; i++){
+			strs[i] = scan.next();
+		}
+		scan.close();
+		for( int i = 0; i < n ; i ++){
+			int sum = 0;
+			for( int j = 0 ; j< strs[i].length() ; j ++){
+				char c = strs[i].charAt(j);
+				if(  c == 'I') sum ++;
+				if( c =='V') sum += 5;
+				if( c == 'X') sum += 10;
+				if( c == 'L') sum += 50;
+				if( c == 'C') sum += 100;
+				if( c== 'D') sum += 500;
+				if( c == 'M') sum +=1000;
+			}
+			if( strs[i].indexOf("IV") >= 0) sum -= 2;
+			if( strs[i].indexOf("XL") >= 0) sum -= 20;
+			if( strs[i].indexOf("XC") >= 0) sum -= 20;
+			if( strs[i].indexOf("CD") >= 0) sum -= 200;
+			if( strs[i].indexOf("CM") >= 0) sum -= 200;
+			System.out.println(sum);
+		}
+		
+	}
+  
+	
+	
+}
+
+//逆序求解
+import java.math.BigInteger;
+import java.util.Collections;
+import java.util.LinkedList;
+import java.util.Scanner;
+
+public class test {
+	
+	public static void main(String[] args) {
+		Scanner scan = new Scanner(System.in);
+		int n = scan.nextInt();
+		String[] strs = new String[n]; 
+		for( int i = 0 ; i < n ; i++){
+			strs[i] = scan.next();
+		}
+		scan.close();
+		for( int i = 0; i < n ; i ++){
+			for( int j = 1 ; j < 1000 ; j++){
+				if( strs[i].equals(nie(j))){
+					System.out.println(j);
+				}
+			}
+		}
+		
+	}
+	public static String nie( int num){
+		String s = "";
+		int a = num /1000;
+		int b = ( num - a * 1000) / 100;
+		int c = ( num - a * 1000 - b * 100 ) /10;
+		int d = num % 10;
+		if(a==1) s += "M";
+
+        if(a==2) s += "MM";
+
+        if(a==3) s += "MMM";
+
+        
+
+        if(b==1) s += "C";
+
+        if(b==2) s += "CC";
+
+        if(b==3) s += "CCC";
+
+        if(b==4) s += "CD";
+
+        if(b==5) s += "D";
+
+        if(b==6) s += "DC";
+
+        if(b==7) s += "DCC";
+
+        if(b==8) s += "DCCC";
+
+        if(b==9) s += "CM";
+
+        
+
+        if(c==1) s += "X";
+
+        if(c==2) s += "XX";
+
+        if(c==3) s += "XXX";
+
+        if(c==4) s += "XL";
+
+        if(c==5) s += "L";
+
+        if(c==6) s += "LX";
+
+        if(c==7) s += "LXX";
+
+        if(c==8) s += "LXXX";
+
+        if(c==9) s += "XC";
+
+                
+
+        if(d==1) s += "I";
+
+        if(d==2) s += "II";
+
+        if(d==3) s += "III";
+
+        if(d==4) s += "IV";
+
+        if(d==5) s += "V";
+
+        if(d==6) s += "VI";
+
+        if(d==7) s += "VII";
+
+        if(d==8) s += "VIII";
+
+        if(d==9) s += "IX";
+        
+        return s;
+		
+	}
+	
+	
+}
