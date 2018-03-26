@@ -1,0 +1,24 @@
+import java.math.BigInteger;
+import java.util.Collections;
+import java.util.LinkedList;
+import java.util.Scanner;
+
+public class test {
+	
+	public static void main(String[] args) {//递归实现串的翻转
+		/*Scanner scan = new Scanner(System.in);
+		
+		while( scan.hasNext()){
+			String s = scan.nextLine();
+			System.out.println(fan(s));
+		}*/
+		System.out.println(skip( 5,4));
+	}
+	
+	public static int skip( int m , int n){
+		if( m == 1 || n == 1){
+			return 1;
+		}
+		return skip( m - 1 , n) + skip( m , n -1);
+	}
+}  
