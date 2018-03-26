@@ -1,0 +1,33 @@
+public class A {
+	public static void main(String[] args) {//递归实现串的翻转
+		/*Scanner scan = new Scanner(System.in);
+		
+		while( scan.hasNext()){
+			String s = scan.nextLine();
+			System.out.println(fan(s));
+		}*/
+		char[] cs = {'a' , 'i' , 's' , 'd' , 'l'};
+		pai( cs , 0);
+		System.out.println(cs);
+		System.out.println(i);
+	}
+	static int i = 0 ;
+	public static void pai( char[] cs , int k){
+		if( k == cs.length - 1){
+			i ++ ;
+		
+			System.out.println(String.valueOf(cs));
+			return ;
+		}
+		
+		for( int i = k ; i < cs.length ; i++){
+			char a = cs[i];
+			cs[i] = cs[k];
+			cs[k] = a;
+			pai( cs , k + 1);
+			a = cs[i];
+			cs[i] = cs[k];
+			cs[k] = a; 
+		}
+	}
+}
