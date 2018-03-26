@@ -1,0 +1,65 @@
+import java.math.BigInteger;
+import java.util.Collections;
+import java.util.LinkedList;
+import java.util.Scanner;
+
+public class test {
+	
+	public static void main(String[] args) {
+		/*Scanner scan = new Scanner(System.in);
+		
+		while( scan.hasNext()){
+			String s = scan.nextLine();
+			System.out.println(fan(s));
+		}*/
+		System.out.println(z(10,10));
+	}
+	//m个1元 ， n个0.5元
+	public static int z( int m , int n){
+		if( m > n){
+			return 0;
+		}
+		if( m == 0){
+			return 1;
+		}
+		if( n == 1){
+			return 1;
+		}
+		return z( m - 1 , n )+ z(m , n - 1);
+	}
+	
+}
+  
+import java.math.BigInteger;
+import java.util.Collections;
+import java.util.LinkedList;
+import java.util.Scanner;
+
+public class test {
+	
+	public static void main(String[] args) {//递归实现串的翻转
+		/*Scanner scan = new Scanner(System.in);
+		
+		while( scan.hasNext()){
+			String s = scan.nextLine();
+			System.out.println(fan(s));
+		}*/
+		System.out.println(z(10,10,0));
+	}
+	//m个1元 ， n个0.5元,已有t个5角
+	public static int z( int m , int n , int t){
+		if( n + t < m){
+			return 0;
+		}
+		if( m == 0){
+			return 1;
+		}
+		if( n == 0){
+			return 1;
+		}
+		int r = z( m , n - 1 , t + 1);
+		if( t>= 1){
+			r += z( m - 1 , n , t - 1);
+		}
+		return r;
+	}  
