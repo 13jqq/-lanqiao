@@ -1,0 +1,67 @@
+import java.math.BigInteger;
+import java.util.Collections;
+import java.util.LinkedList;
+import java.util.Scanner;
+
+public class test {
+	
+	public static void main(String[] args) {//递归实现
+		/*Scanner scan = new Scanner(System.in);
+		
+		while( scan.hasNext()){
+			String s = scan.nextLine();
+			System.out.println(fan(s));
+		}*/
+		for( int i = 1 ;i <= 16 ; i++){
+			System.out.println(f(i));
+		}
+		
+	}
+	
+	public static int f(int n , int m ){//n个没进栈，m个在栈中
+		if( n == 0) return 1;
+		if( m == 0) return f( n - 1 , 1);
+		return f( n , m - 1) + f( n - 1 , m + 1);
+		
+	}
+	public static int f( int n){
+		return f( n , 0);
+	}
+}
+
+
+
+import java.math.BigInteger;
+import java.util.Collections;
+import java.util.LinkedList;
+import java.util.Scanner;
+
+public class test {//卡特兰数
+	
+	public static void main(String[] args) {
+		/*Scanner scan = new Scanner(System.in);
+		
+		while( scan.hasNext()){
+			String s = scan.nextLine();
+			System.out.println(fan(s));
+		}*/
+		for( int i = 1 ;i <= 16 ; i++){
+				
+			
+			
+			System.out.println(ff(i));
+		}
+		
+	}
+	
+	public static int ff( int n){
+		if( n == 0 ) return 1;
+		if( n == 1) return 1;
+		if( n == 2) return 2;
+		int sum = 0 ;
+		for( int i = 0 ; i < n ; i++){
+			sum += ff(i) * ff( n - 1 - i) ;
+		}
+		return sum;
+	}
+}
