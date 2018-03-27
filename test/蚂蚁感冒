@@ -1,0 +1,45 @@
+import java.util.Scanner;
+
+public class A {
+	public static void main(String[] args) {//递归实现串的翻转
+		/*Scanner scan = new Scanner(System.in);
+		
+		while( scan.hasNext()){
+			String s = scan.nextLine();
+			System.out.println(fan(s));
+		}*/
+		Scanner scan = new Scanner(System.in);
+		while( scan.hasNext()){
+			int n = scan.nextInt();
+			int[] ms = new int[n];
+			for( int i = 0 ; i < n ; i++){
+				ms[i] = scan.nextInt();
+			}
+			System.out.println(mayi(ms , n));
+		}
+		
+	}
+	public static int mayi( int[] ms ,int n){
+		int first = -1;
+		int min = 101;
+		int num = 1;
+		for( int i = 0 ; i < n ; i++){
+			if( Math.abs(ms[i]) < min){
+				min = Math.abs(ms[i]);
+				first = i;
+			}
+		}
+		if(first == -1){
+			return -1;
+		}
+		if( ms[first] < 0){
+			return 1;
+		}
+		for( int i = 0; i < n ; i++){
+			if( ms[i] <0 ){
+				num++;
+			}
+		}
+		return num;
+	}
+	
