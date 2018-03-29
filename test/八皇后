@@ -1,0 +1,68 @@
+import java.util.Collections;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Scanner;
+public class A {
+	
+	public static void main(String[] args) {//递归实现串的翻转
+		/*Scanner scan = new Scanner(System.in);
+		
+		while( scan.hasNext()){
+			String s = scan.nextLine();
+			System.out.println(fan(s));
+		}*/
+		int[][] chess = new int[8][8];
+		for( int i = 0 ;i < 8 ; i++){
+			for ( int j = 0 ; j < 8 ; j ++){
+				chess[i][j] = 0;
+			}
+		}
+		queen( chess , 0);
+		
+	}
+	static int count = 0;
+	static int  n = 8;
+	public static void queen(int[][] chess , int row){//n皇后
+		
+		if(row == n  ){
+			count ++;
+			System.out.println("第" + count);
+			for(int i = 0; i < n ;i++){
+                for(int j = 0 ; j < n;j++){
+                    System.out.print(chess[i][j]+" ");
+                }
+                System.out.println();
+            }
+            return;
+		}
+		int[][] chessTmp = chess;
+		for( int i = 0; i < n ; i ++){//试这一行
+			
+			for( int j = 0 ; j< n ; j++){
+				chessTmp[row][j] =0;
+			}
+			chessTmp[row][i] =1;
+			if( isSafe(chessTmp , row , i)){
+				queen(chessTmp , row + 1);
+			}
+			
+		}
+	}
+	
+	public static boolean isSafe(int[][] chess , int row , int col){
+		int index = 1;
+		while( row - index >= 0){
+			int t = row - index;
+			if( chess[t][col] == 1){
+				return false;
+			}
+			if( col - index >= 0 && chess[t][col - index] == 1){
+				return false;
+			}
+			if( col + index < n && chess[t][col + index] == 1){
+				return false;
+			}
+			index ++;
+		}
+		return true;
+	}
