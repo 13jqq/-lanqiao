@@ -1,0 +1,33 @@
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Scanner;
+public class A {
+	
+	public static void main(String[] args) {//递归实现串的翻转
+		/*Scanner scan = new Scanner(System.in);
+		
+		while( scan.hasNext()){
+			String s = scan.nextLine();
+			System.out.println(fan(s));
+		}*/
+		int[] a = {2 , 3 , 1};
+		zuhe(a , 0 , 3 ,"");
+		System.out.println(cont);
+		
+	}
+	public static void zuhe( int[] a , int k , int n , String s){
+		if( k == a.length){
+			if( n == 0 ){
+				System.out.println(s);
+				cont ++;
+			}
+			return ;
+		}
+		String s2 = s;
+		for( int i = 0 ; i <= a[k] ; i++){
+			zuhe( a , k + 1 ,n - i , s2);
+			s2 += (char)( k + 'A');
+		}
+	}
+	
+	static int cont  = 0;
