@@ -1,0 +1,59 @@
+import java.util.Collections;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Scanner;
+public class A {
+	
+	public static void main(String[] args) {//递归实现串的翻转
+		/*Scanner scan = new Scanner(System.in);
+		
+		while( scan.hasNext()){
+			String s = scan.nextLine();
+			System.out.println(fan(s));
+		}*/
+		char[] cs = { 'A' , 'A' ,'2' , '2' , '3' , '3' , '4', '4'};
+		quanp(cs , 0);
+		Collections.sort(result);
+		System.out.println(result.get(0));
+		
+	}
+	static String smin = "";
+	static List<String> result = new LinkedList<String>() ;
+	public static void quanp( char[] cs, int k ){
+		if( k == cs.length - 1){
+			String s = new String(cs);
+			if( puke(s)){
+				result.add(s);
+			}
+			
+			return ;
+		}
+		for( int i = k  ; i < cs.length ; i++){
+			char a = cs[k];
+			cs[k] = cs[i];
+			cs[i] = a;
+			quanp( cs , k+ 1);
+			a = cs[k];
+			cs[k] = cs[i];
+			cs[i] = a;
+		}
+		
+	}
+	public static boolean puke(String s){
+		int indexOfA = s.indexOf("A");
+		if( s.lastIndexOf("A") != (indexOfA + 2)){
+			return false;
+		}
+		else if( s.lastIndexOf("2") != (s.indexOf("2") + 3)){
+			return false;
+		}
+		else if( s.lastIndexOf("3") != (s.indexOf("3") + 4)){
+			return false;
+		}
+		else if( s.lastIndexOf("4") != (s.indexOf("4") + 5)){
+			return false;
+		}
+		else{
+			return true;
+		}
+	}
